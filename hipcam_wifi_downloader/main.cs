@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace hipcam_wifi_downloader
 {
-    public partial class Form1 : Form
+    public partial class main : Form
     {
-        public Form1()
+        public main()
         {
             InitializeComponent();
         }
@@ -97,7 +97,7 @@ namespace hipcam_wifi_downloader
 
                         Console.WriteLine(i);
 
-                        if (findata[i].Contains("wf_ssid"))
+                        if (findata[i].Contains("wf_ssid="))
                         {
                             tmpwifistr = findata[i].Replace("wf_ssid=\"", "");
                             tmpwifistr = tmpwifistr.Remove(tmpwifistr.Length - 4);
@@ -124,7 +124,7 @@ namespace hipcam_wifi_downloader
                             tmpsrlstr = tmpsrlstr.Remove(tmpsrlstr.Length - 4);
                             Console.WriteLine(tmpsrlstr);
                         }
-                        //richTextBox1.Text = outputstr;
+
                     }
 
                     outputstr = "IP:\n " + ip + "\n\nWIFI SSID:\n" + tmpwifistr + "\n\nWIFI PASSWORD:\n" + tmpkeystr + "\n\nMAC ADDREDD:\n" + tmpmacstr + "\n\nSERIAL NUMBER:\n" + tmpsrlstr;
@@ -143,7 +143,7 @@ namespace hipcam_wifi_downloader
                 }
                 catch
                 {
-                    //badip
+                    //bad ip
                     return emptystr;
                 }
             }
@@ -153,7 +153,6 @@ namespace hipcam_wifi_downloader
         {
             string ipdata = getIpData(textBox1.Text, false);
             richTextBox1.Text = ipdata;
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -232,6 +231,16 @@ namespace hipcam_wifi_downloader
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void keyPress(object sender, KeyPressEventArgs e)
+        {
+            Console.WriteLine("K");
+            if (e.KeyChar == (char)Keys.K)
+            {
+                Form Form2 = new logo_info();
+                Form2.Show();
+            }
         }
     }
 }
