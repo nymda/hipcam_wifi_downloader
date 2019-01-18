@@ -10,6 +10,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//written by knedit, 2019
+
 namespace hipcam_wifi_downloader
 {
     public partial class Form1 : Form
@@ -225,6 +227,11 @@ namespace hipcam_wifi_downloader
             b.Start();
             c.Start();
             d.Start();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
